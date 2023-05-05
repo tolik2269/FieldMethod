@@ -12,22 +12,25 @@ public class Radio {
 
 
     public void setNextChanel(int newNextChanel) {
-        if (newNextChanel < 10) {
+        if (newNextChanel <= 9) {
             newNextChanel = newNextChanel + 1;
         }
         if (newNextChanel > 9) {
-            newNextChanel = 0;
+            return;
         }
         nomberChanel = newNextChanel;
     }
 
     public void setPrevChanel(int newPrevChanel) {
-        if (newPrevChanel < 10) {
+        if (newPrevChanel <= 9) {
             newPrevChanel = newPrevChanel - 1;
 
         }
-        if (newPrevChanel == -1) {
+        if (newPrevChanel < 0) {
             newPrevChanel = 9;
+        }
+        if (newPrevChanel > 9) {
+            return;
         }
         nomberChanel = newPrevChanel;
     }
@@ -37,28 +40,29 @@ public class Radio {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
-        }
-        if (newCurrentVolume > 100) {
-            newCurrentVolume = 100;
-        }
-        currentVolume = newCurrentVolume;
-    }
-
 
     public void setIncreaseVolume(int newIncreaseVolume) {
         if (newIncreaseVolume < 100) {
             newIncreaseVolume = newIncreaseVolume + 1;
         }
+        if (newIncreaseVolume > 100) {
+            return;
+        }
         currentVolume = newIncreaseVolume;
     }
 
     public void setReduceVolume(int newReduceVolume) {
-        if (newReduceVolume < 100) {
+        if (newReduceVolume <= 100) {
             newReduceVolume = newReduceVolume - 1;
         }
+        if (newReduceVolume < 0) {
+            return;
+        }
+        if (newReduceVolume > 100) {
+            return;
+        }
+
+
         currentVolume = newReduceVolume;
     }
 
