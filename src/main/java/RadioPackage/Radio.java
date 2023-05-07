@@ -2,9 +2,21 @@ package RadioPackage;
 
 public class Radio {
 
-    public int nomberChanel;
-    public int currentVolume;
+    private int numberOfStations=10;
+    private int nomberChanel;
+    private int currentVolume;
 
+    public Radio(int numberOfStations){
+        this.numberOfStations=numberOfStations;
+    }
+
+    public Radio(){
+
+}
+
+    public int getNumberOfStations(){
+        return numberOfStations;
+    }
 
     public int getNomberChanel() {
         return nomberChanel;
@@ -12,7 +24,7 @@ public class Radio {
 
 
     public void setNextChanel(int newNextChanel) {
-        if (newNextChanel <= 9) {
+        if (newNextChanel < numberOfStations) {
             newNextChanel = newNextChanel + 1;
         }
         if (newNextChanel > 9) {
@@ -22,7 +34,7 @@ public class Radio {
     }
 
     public void setPrevChanel(int newPrevChanel) {
-        if (newPrevChanel <= 9) {
+        if (newPrevChanel < numberOfStations) {
             newPrevChanel = newPrevChanel - 1;
 
         }
