@@ -5,6 +5,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
+    @Test
+    public void test() {
+        Radio radio = new Radio(10);
+        Assertions.assertEquals(10,radio.getNumberOfStations());
+    }
 
     @Test
     public void prevChanel() {
