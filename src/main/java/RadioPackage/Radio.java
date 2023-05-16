@@ -5,12 +5,12 @@ public class Radio {
     private int currentVolume;
     public int stationsMax;
 
-    public Radio(){
-        stationsMax=9;
+    public Radio() {
+        stationsMax = 9;
     }
 
-    public Radio(int stationsCount){
-        stationsMax=stationsCount-1;
+    public Radio(int stationsCount) {
+        stationsMax = stationsCount - 1;
     }
 
 
