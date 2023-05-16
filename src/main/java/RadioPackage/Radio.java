@@ -3,6 +3,15 @@ package RadioPackage;
 public class Radio {
     private int nomberChanel;
     private int currentVolume;
+    public int stationsMax;
+
+    public Radio(){
+        stationsMax=9;
+    }
+
+    public Radio(int stationsCount){
+        stationsMax=stationsCount-1;
+    }
 
 
     public int getNomberChanel() {
@@ -13,14 +22,14 @@ public class Radio {
         if (newNomberChanel < 0) {
             return;
         }
-        if (newNomberChanel > 9) {
+        if (newNomberChanel > stationsMax) {
             return;
         }
         this.nomberChanel = newNomberChanel;
     }
 
     public void NextChanel() {
-        if (nomberChanel != 9) {
+        if (nomberChanel != stationsMax) {
             nomberChanel = nomberChanel + 1;
         } else {
             nomberChanel = 0;
@@ -34,7 +43,7 @@ public class Radio {
             nomberChanel = nomberChanel - 1;
         } else {
 
-            nomberChanel = 9;
+            nomberChanel = stationsMax;
         }
     }
 
