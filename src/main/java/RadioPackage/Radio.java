@@ -1,50 +1,41 @@
 package RadioPackage;
 
 public class Radio {
-
-    private int numberOfStations=10;
     private int nomberChanel;
     private int currentVolume;
 
-    public Radio(int numberOfStations){
-        this.numberOfStations=numberOfStations;
-    }
-
-    public Radio(){
-
-}
-
-    public int getNumberOfStations(){
-        return numberOfStations;
-    }
 
     public int getNomberChanel() {
         return nomberChanel;
     }
 
-
-    public void setNextChanel(int newNextChanel) {
-        if (newNextChanel < numberOfStations) {
-            newNextChanel = newNextChanel + 1;
-        }
-        if (newNextChanel > 9) {
+    public void setNomberChanel(int newNomberChanel) {
+        if (newNomberChanel < 0) {
             return;
         }
-        nomberChanel = newNextChanel;
+        if (newNomberChanel > 9) {
+            return;
+        }
+        this.nomberChanel = newNomberChanel;
     }
 
-    public void setPrevChanel(int newPrevChanel) {
-        if (newPrevChanel < numberOfStations) {
-            newPrevChanel = newPrevChanel - 1;
+    public void NextChanel() {
+        if (nomberChanel != 9) {
+            nomberChanel = nomberChanel + 1;
+        } else {
+            nomberChanel = 0;
+        }
 
+
+    }
+
+    public void PrevChanel() {
+        if (nomberChanel != 0) {
+            nomberChanel = nomberChanel - 1;
+        } else {
+
+            nomberChanel = 9;
         }
-        if (newPrevChanel < 0) {
-            newPrevChanel = 9;
-        }
-        if (newPrevChanel > 9) {
-            return;
-        }
-        nomberChanel = newPrevChanel;
     }
 
 
@@ -52,30 +43,31 @@ public class Radio {
         return currentVolume;
     }
 
-
-    public void setIncreaseVolume(int newIncreaseVolume) {
-        if (newIncreaseVolume < 100) {
-            newIncreaseVolume = newIncreaseVolume + 1;
-        }
-        if (newIncreaseVolume > 100) {
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume > 100) {
             return;
         }
-        currentVolume = newIncreaseVolume;
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        this.currentVolume = newCurrentVolume;
     }
 
-    public void setReduceVolume(int newReduceVolume) {
-        if (newReduceVolume <= 100) {
-            newReduceVolume = newReduceVolume - 1;
-        }
-        if (newReduceVolume < 0) {
-            return;
-        }
-        if (newReduceVolume > 100) {
-            return;
+    public void IncreaseVolume() {
+        if (currentVolume != 100) {
+            currentVolume = currentVolume + 1;
+        } else {
+            currentVolume = 100;
         }
 
+    }
 
-        currentVolume = newReduceVolume;
+    public void ReduceVolume() {
+        if (currentVolume != 0) {
+            currentVolume = currentVolume - 1;
+        } else {
+            currentVolume = 0;
+        }
     }
 
 
